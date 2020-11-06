@@ -1,0 +1,95 @@
+<%- include('./partials/navbar.ejs')%> <%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mt-4">
+                <form action="/editticket/<%= ticket._id%>" method="post">
+                    <h3>Edit Ticket</h3>
+                    <div class="row mt-3 py-3">
+                        <div class="col-6">
+                            <h6>Title</h6>
+                            <input
+                                type="text"
+                                name="title"
+                                id="title"
+                                placeholder="Title"
+                                value="<%= ticket.title%>"
+                                class="w-75 h-75 px-2 mt-2 border border-top-0 border-left-0 border-right-0"
+                            />
+                        </div>
+                        <div class="col-6">
+                            <h6>Ticket Description</h6>
+                            <input
+                                type="text"
+                                name="description"
+                                id="description"
+                                placeholder="Description"
+                                value="<%= ticket.description%>"
+                                class="w-75 h-75 px-2 mt-2 border border-top-0 border-left-0 border-right-0"
+                            />
+                        </div>
+                    </div>
+                    <div class="row mt-4 py-3">
+                        <div class="col-6">
+                            <h6>Assign Developer</h6>
+                            <select name="developer" id="developer" class="border w-75 h-50 mt-2 pl-2">
+                                <option value="<%= project.developer%>"><%= project.developer%></option>
+                                <option value="<%= project.developer2%>"><%= project.developer2%></option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                        <h6>Ticket Priority</h6>
+                        <select name ="priority" id="priority" class="border w-75 h-50 mt-2 pl-2" >
+                            <% const priorities = ['Active','Test','Verified','Closed','Reopened']; %>
+                            <% priorities.forEach(priority => { %>
+                                <% if(priority == ticket.priority){ %>
+                                    <option value="<%= ticket.priority%>" selected><%= ticket.priority%></option>
+                                <% }else{ %>
+                                    <option value="<%= priority%>"><%= priority%></option>
+                                <% } %>
+                            <% }) %>
+                        </select>
+                    </div>
+                    </div>
+                    <div class="row mt-3 pt-3 pb-5 border-bottom">
+                    <div class="col-6">
+                        <h6>Ticket Status</h6>
+                        <select name="status" id="status" class="border w-75 h-50 mt-2 pl-2" >
+                            <% const statusList = ['Catastrophic','Impaired functionality','Failure of non-critical systems','Very Minor']; %>
+                            <% statusList.forEach(status => { %>
+                                <% if(status == ticket.status){ %>
+                                    <option value="<%= status%>" selected><%= status%></option>
+                                <% }else{ %>
+                                    <option value="<%= status%>"><%= status%></option>
+                                <% } %>
+                            <% }) %>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <h6>Ticket Type</h6>
+                        <select name="type" id="type" class="border w-75 h-50 mt-2 pl-2" >
+                            <% const types = ['Functional Bug','Content Bug','Visual Bug','Usability Suggestion']; %>
+                            <% types.forEach(type => { %>
+                                <% if(type == ticket.type){ %>
+                                    <option value="<%= type%>" selected><%= type%></option>
+                                <% }else{ %>
+                                    <option value="<%= type%>"><%= type%></option>
+                                <% } %>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+                    <div class="row mt-2 py-3">
+                        <div class="col-6">
+                            <a href="/mytickets">Back to List</a>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary">UPDATE TICKET</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

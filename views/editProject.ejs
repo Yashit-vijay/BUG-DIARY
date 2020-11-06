@@ -1,0 +1,95 @@
+<%- include('./partials/navbar.ejs')%> <%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-10 col-sm-12 mt-4">
+                <h3>EDIT PROJECT</h3>
+                <div class="row mt-3 py-3">
+                    <div class="col-6">
+                        <h6>Title</h6>
+                        <form method="POST", action="/editproject/<%= project.id%>">
+                        <input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Name"
+                            value="<%= project.title%>"
+                            class="w-75 h-75 px-2 mt-2 border border-top-0 border-left-0 border-right-0"
+                        />
+                    </div>
+                    <div class="col-6">
+                        <h6>Project Description</h6>
+                        <input
+                            type="text"
+                            name="description"
+                            id="description"
+                            placeholder="Description"
+                            value="<%= project.description%>"
+                            class="w-75 h-75 px-2 mt-2 border border-top-0 border-left-0 border-right-0"
+                        />
+                    </div>
+                </div>
+                <div class="row mt-4 py-3 pb-3">
+                    <div class="col-6">
+                        <h6>Assign Project Manager</h6>
+                        <select name="manager" id="manager" class="border w-75 h-50 mt-2 pl-2">
+                            <% if(currentUser.role == 'Admin'){%>
+                                <% users.forEach(user => { %>
+                                    <% if(user.role == 'Project Manager'){ %>
+                                        <% if(user.username == project.manager){%>
+                                            <option value="<%= user.username%>" selected><%= user.username%></option>
+                                        <%}else{%>
+                                            <option value="<%= user.username%>"><%= user.username%></option>
+                                        <%}%>
+                                    <% }%>
+                                <% })%>
+                            <% }else if(currentUser.role == 'Project Manager'){%>
+                                <option value="<%= currentUser.username%>"><%= currentUser.username%></option>        
+                            <% }%>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <h6>Assign Developer</h6>
+                        <select name="developer" id="developer" class="border w-75 h-50 mt-2 pl-2" >
+                            <% users.forEach(user => { %>
+                                <% if(user.role == 'Developer'){ %>
+                                    <% if(user.username == project.developer){%>
+                                        <option value="<%= user.username%>" selected><%= user.username%></option>
+                                    <%}else{%>
+                                        <option value="<%= user.username%>"><%= user.username%></option>
+                                    <%}%>
+                                <% }%>
+                            <% })%>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3 py-3 pb-5 border-bottom">
+                    <div class="col-6">
+                        <h6>Assign Second Developer</h6>
+                        <select name="developer2" id="developer" class="border w-75 h-50 mt-2 pl-2" >
+                            <% users.forEach(user => { %>
+                                <% if(user.role == 'Developer'){ %>
+                                    <% if(user.username == project.developer2){%>
+                                        <option value="<%= user.username%>" selected><%= user.username%></option>
+                                    <%}else{%>
+                                        <option value="<%= user.username%>"><%= user.username%></option>
+                                    <%}%>
+                                <% }%>
+                            <% })%>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-2 py-3">
+                    <div class="col-6">
+                        <a href="/projectdetail/<%= project.id%>">Back to details</a>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" id="submit" class="btn btn-primary createproject">UPDATE PROJECT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,49 @@
+<%- include('./partials/navbar.ejs')%>
+<%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="row admin-welcome-container">
+        <div class="col-5 welcome-msg">
+            <h2>Welome,</h2>
+            <h1><%= user.username %></h1>
+        </div>
+        <div class="admin-img col-7">
+            <img src="./images/undraw_dashboard_nklg.svg" alt="" class="w-75 h-75" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 py-2">
+            <div class="card text-white h-100">
+                <div class="card-body">
+                    <div class="rotate">
+                        <i class="fa fa-ticket fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase">Tickets</h6>
+                    <h1 class="display-4">134</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 py-2">
+            <div class="card text-white h-100">
+                <div class="card-body">
+                    <div class="rotate">
+                        <i class="fa fa-area-chart fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase">Projects</h6>
+                    <h1 class="display-4">125</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 py-2">
+            <div class="card text-white h-100">
+                <div class="card-body">
+                    <div class="rotate">
+                        <i class="fa fa-users fa-4x"></i>
+                    </div>
+                    <h6 class="text-uppercase">Users</h6>
+                    <h1 class="display-4">36</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

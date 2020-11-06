@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <h1 class="nav-link role"><%= user.role %></h1>
+                    </li>
+                    <% if(user.role == 'Admin'){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/manage-roles">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                                Manage Role Assingments
+                            </a>
+                        </li>
+                    <% } %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/myprojects">
+                            <i class="fa fa-area-chart" aria-hidden="true"></i>
+                            My Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mytickets">
+                            <i class="fa fa-ticket" aria-hidden="true"></i>
+                            My Tickets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/userprofile">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            User Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

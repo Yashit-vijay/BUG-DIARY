@@ -1,0 +1,92 @@
+<%- include('./partials/navbar.ejs')%>
+<%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <div class="manage-user-heading">
+            <h1>MANAGE USER ROLES</h1>
+        </div>
+        <div class="row mt-5">
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 col-12">
+                <div class="pb-4 w-75 select-users border-bottom">
+                    <h5>Select 1 or more Users</h5>
+                    <form id="form">
+                        <select name="Users" id="users" multiple size="4" class="d-block w-75 mb-4 users">
+                            <% users.forEach(user => { %>
+                                <option value="<%= user.username%>"><%= user.username%></option>
+                            <% })%>
+                        </select>
+                    </div>
+                    <div class="select-role">
+                        <h5 class="mt-5">Select the Role to assign</h5>
+                        <select name="roles" id="roles" class="d-block w-50 roles">
+                            <option value="null">Select Role</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Project Manager">Project Manager</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4 mb-4" onClick="window.location.reload();">Assign Role</button>
+                </form>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12 col-12">
+                <table id="manage-roles-datatable" class="table table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>USERNAME</th>
+                            <th>E-MAIL</th>
+                            <th>ROLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach(user => { %>
+                            <tr>
+                                <td><%= user.name%></td>
+                                <td><%= user.username%></td>
+                                <td><%= user.email%></td>
+                                <td><%= user.role%></td>
+                            </tr>
+                        <% })%>
+                    </tbody>
+                </table>
+                <div id="manage-roles-pagination" class="pagination user-roles-table">
+                    <p class="pagination-label">
+                        Viewing <span>1-10</span> of <span>36</span>
+                    </p>
+                    <a href="#" class="previous round"><i class="fa fa-angle-left fa-lg" aria-hidden="true"></i></a>
+                    <a href="#" class="next round"><i class="fa fa-angle-right fa-lg" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <script src="./js/pagination.class.js"></script>
+    <script>
+        //  PAGINATION JS
+        var pagination = new Pagination({
+            id:'manage-roles-pagination',
+            tableID:'manage-roles-datatable', 
+            noOfRows:6
+        });
+        // RETREVING VALUES
+        const form = document.querySelector('#form');
+        form.addEventListener('submit',async (event) => {
+            event.preventDefault();
+            const selected = document.querySelectorAll('#users option:checked');
+            const users = Array.from(selected).map(el => el.value);
+            const role = form.roles.value;
+            try{
+            const res = await fetch ('/manage-roles', {
+                method: 'POST',
+                body: JSON.stringify( { users, role } ),
+                headers: {'Content-Type': 'application/json'}
+            })
+            }
+            catch(err){
+                console.log(err);
+            }
+        })
+        
+    </script>

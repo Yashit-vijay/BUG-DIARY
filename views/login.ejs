@@ -1,0 +1,59 @@
+<div class="login-logo">
+    <h1>BUG DIARY</h1>
+</div>
+<div class="login-container">
+    <div class="login-form-container">
+        <h1 class="login-heading">Login</h1>
+        <form id="form">
+            <input type="text" name="username" id="username" placeholder="Username" />
+            <span class="username-error"></span>
+            <input type="password" name="password" id="password" placeholder="Password"/>
+            <span class="password-error"></span>
+            <button type="submit" id="submit">Login</button>
+            <span>New User? </span>
+            <a href="/signup" class="signup-link">Sign Up</a>
+        </form>
+    </div>
+    <img src="./images/undraw_bug_fixing_oc7a.svg" alt="" />
+</div>
+
+<!-- SCRIPT -->
+<script>
+
+    // RETREVING VALUES
+    const form = document.querySelector('#form');
+    const usernameError =document.querySelector('.username-error');
+    const passwordError =document.querySelector('.password-error');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        // RESET ERRORS
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+
+        // GET THE VALUES
+        const username = form.username.value;
+        const password = form.password.value;
+
+        try{
+            const res = await fetch('/login', {
+                method: 'POST',
+                body: JSON.stringify( { username, password } ),
+                headers: {'Content-Type': 'application/json'}
+            })
+            const data = await res.json();
+            if(data.errors){
+                usernameError.textContent = data.errors.username;
+                passwordError.textContent = data.errors.password;
+            }
+            if(data.user){
+                location.assign('/home');
+            }
+        }
+        catch(err){
+            console.log(err);
+        }
+
+    });
+</script>

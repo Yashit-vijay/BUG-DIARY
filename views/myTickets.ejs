@@ -1,0 +1,56 @@
+<%- include('./partials/navbar.ejs')%> <%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <div class="row mt-3 pl-3">
+            <h3>Your Tickets</h3>
+        </div>
+        <div class="row mt-3">
+            <table id="datatable" class="my-tickets table table-striped table-responsive col-lg-12">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Project Name</th>
+                        <th>Developer Assigned</th>
+                        <th>Ticket Priority</th>
+                        <th>Ticket Status</th>
+                        <th>Ticket Type</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% tickets.forEach(ticket => { %>
+                        <tr>
+                            <td><%= ticket.title%></td>
+                            <td><%= ticket.project%></td>
+                            <td><%= ticket.developer%></td>
+                            <td><%= ticket.priority%></td>
+                            <td><%= ticket.status%></td>
+                            <td><%= ticket.type%></td>
+                            <td><a href="/ticketdetail/<%= ticket._id%>">Details</a></td>
+                        </tr>
+                    <%})%>
+                </tbody>
+            </table>
+            <div id="pagination" class="pagination pl-3">
+                <p class="pagination-label">
+                    Viewing <span>1-10</span> of <span>36</span>
+                </p>
+                <a href="#" class="previous round">
+                    <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="next round">
+                    <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../js/pagination.class.js"></script>
+<script>
+    var pagination = new Pagination({
+        id: "pagination",
+        tableID: "datatable",
+        noOfRows: 8,
+    });
+</script>

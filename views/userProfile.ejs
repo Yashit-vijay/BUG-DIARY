@@ -1,0 +1,126 @@
+<%- include('./partials/navbar.ejs')%> <%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <div class="row mt-5">
+            <h3>USER DETAILS</h3>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6">
+                <div class="row mt-3 py-3 border-bottom">
+                    <div class="col-6">
+                        <h6>Name</h6>
+                        <h6><%= currentUser.name%></h6>
+                    </div>
+                    <div class="col-6">
+                        <h6>Username</h6>
+                        <h6><%= currentUser.username%></h6>
+                    </div>
+                </div>
+                <div class="row mt-3 py-3 border-bottom">
+                    <div class="col-6">
+                        <h6>E-mail</h6>
+                        <h6><%= currentUser.email%></h6>
+                    </div>
+                    <div class="col-6">
+                        <h6>Mobile Number</h6>
+                        <h6><%= currentUser.mobileno%></h6>
+                    </div>
+                </div>
+                <div class="row mt-3 py-3">
+                    <div class="col-6">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editProfile">
+                        Edit Profile
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changePassword">
+                        Change Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row m-5">
+                    <img src="./images/undraw_profile_details_f8b7.svg" alt="" class="w-75 h-75"/>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Edit Profile Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/editprofile" method="POST">
+            <div class="modal-body">
+                    <div class="row mt-4 mr-2">
+                        <div class="ml-4 col-5 mr-4">
+                            <input class="border border-top-0 border-left-0 border-right-0 w-100 pl-2" type="text" name="name" id="name" placeholder="Name" value="<%= currentUser.name%>">
+                            <span class="name-error"></span>
+                        </div>
+                        <div class="col-5">
+                            <input class="border border-top-0 border-left-0 border-right-0 w-100 pl-2" type="text" name="username" id="username" placeholder="Username" value="<%= currentUser.username%>">
+                            <span class="username-error"></span>
+                        </div>
+                    </div>
+                    <div class="row mt-5 mb-4 mr-2">
+                        <div class="ml-4 col-5 mr-4">
+                            <input class="border border-top-0 border-left-0 border-right-0 w-100 pl-2" type="tel" name="mobileno" id="mobileno" placeholder="Mobile number" value="<%= currentUser.mobileno%>">
+                            <span class="mobileno-error"></span>
+                        </div>
+                        <div class="col-5">
+                            <input class="border border-top-0 border-left-0 border-right-0 w-100 pl-2" type="email" name="email" id="email" placeholder="E-mail" value="<%= currentUser.email%>">
+                            <span class="email-error"></span>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/changePassword" method="post" id="form">
+                <div class="modal-body">
+                    <div class="row">
+                        <input class="ml-5 border border-top-0 border-left-0 border-right-0 w-50 pl-2 mb-5 mt-4" type="password" name="currentpassword" id="currentpassword" placeholder="Current Password">
+                        <span class="current-password-error"></span>
+                        </div>
+                    <div class="row">
+                        <input class="ml-5 border border-top-0 border-left-0 border-right-0 w-50 pl-2 mb-5" type="password" name="newpassword" id="newpassword" placeholder="New Password">
+                        <span class="new-password-error"></span>
+                    </div>
+                    <div class="row">
+                        <input class="ml-5 border border-top-0 border-left-0 border-right-0 w-50 pl-2 mb-5" type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm Password">
+                        <span class="confirm-password-error"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>

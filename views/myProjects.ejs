@@ -1,0 +1,53 @@
+<%- include('./partials/navbar.ejs')%> <%- include('./partials/sidebar.ejs')%>
+
+<section class="admin-overview">
+    <div class="container">
+        <% if(currentUser == 'Developer'){ %>
+            <div class="row mt-3 pl-3">
+                <a href="/createproject" class="btn btn-primary">CREATE NEW PROJECT</a>
+            </div>
+        <% } %>
+        <div class="row mt-5">
+            <table id="my-projects-datatable" class="my-projects table table-striped table-responsive col-lg-12">
+                <thead>
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% projects.forEach(project => { %>
+                        <tr>
+                            <td><%= project.title%></td>
+                            <td><%= project.description%></td>
+                            <td><a href="/projectdetail/<%= project._id %>">Details</a></td>
+                        </tr>
+                    <%});%>
+                </tbody>
+            </table>
+            <div id="my-projects-pagination" class="pagination pl-3">
+                <p class="pagination-label">
+                    Viewing <span>1-10</span> of <span>36</span>
+                </p>
+                <a href="#" class="previous round">
+                    <i class="fa fa-angle-left fa-lg" aria-hidden="true"></i>
+                </a>
+                <a href="#" class="next round">
+                    <i class="fa fa-angle-right fa-lg" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <%# PAGINATION JS%>
+
+    <script src="./js/pagination.class.js"></script>
+    <script>
+        var pagination = new Pagination({
+            id:'my-projects-pagination',
+            tableID:'my-projects-datatable', 
+            noOfRows:6
+        });
+    </script>

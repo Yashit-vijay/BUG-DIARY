@@ -1,0 +1,1151 @@
+/* ?GLOBAL CSS */
+
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --AsapFont: "Asap", sans-serif;
+    --NotoSans: "Noto Sans JP", sans-serif;
+    --Error:'Press Start 2P', cursive;
+    --Blue: #6c63ff;
+    --DarkBlue: #5850f1;
+    --Pink: #ff87ab;
+    --White: #ffffff;
+    --Black: #000000;
+}
+
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--White);
+    width: 100%;
+    font-family: var(--NotoSans);
+    overflow-x: hidden;
+}
+
+.btn{
+    background-color: var(--Blue);
+    border-color: var(--Blue);
+}
+
+.btn:hover{
+    background-color: var(--DarkBlue);
+    border-color: var(--DarkBlue);
+}
+
+/* ?GLOBAL CSS END */
+
+/* ? LOGIN CSS */
+
+.login-logo {
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--Blue);
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.login-container img {
+    height: 500px;
+    width: 500px;
+}
+
+.login-form-container {
+    padding: 30px;
+    text-align: center;
+}
+
+.login-form-container .login-heading {
+    font-size: 30px;
+    color: var(--Blue);
+}
+
+.login-form-container form input {
+    display: block;
+    margin: 50px auto;
+    height: 50px;
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid var(--Black);
+    font-size: 20px;
+    outline: none;
+}
+
+.login-form-container form button {
+    height: 40px;
+    width: 250px;
+    color: var(--White);
+    background-color: var(--Blue);
+    border: 2px solid var(--Blue);
+    border-radius: 30px;
+    font-size: 25px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.login-form-container form .signup-link {
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+/* ? LOGIN CSS END*/
+
+/* ? SIGN UP CSS*/
+
+.signup-logo {
+    font-size: 25px;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--Blue);
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.signup-container img {
+    margin-right: 100px;
+    height: 500px;
+    width: 500px;
+}
+
+.signup-form-container {
+    text-align: center;
+}
+
+.signup-form-container .signup-heading {
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: var(--Blue);
+}
+
+.signup-form-container form input {
+    display: inline-block;
+    margin: 20px 50px;
+    height: 50px;
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid var(--Black);
+    font-size: 20px;
+    outline: none;
+}
+
+.signup-form-container form button {
+    height: 40px;
+    width: 250px;
+    color: var(--White);
+    background-color: var(--Blue);
+    border: 2px solid var(--Blue);
+    border-radius: 30px;
+    font-size: 25px;
+    outline: none;
+    cursor: pointer;
+    margin: 30px auto;
+    display: block;
+}
+
+.signup-form-container form .login-link {
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+/* ? SIGN UP CSS END*/
+
+/* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar*/
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 var(--DarkBlue);
+}
+
+.sidebar-sticky {
+    background-color: var(--Blue);
+    display: block;
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--White);
+    border-bottom: 0.8px solid var(--DarkBlue);
+    padding: 15px 0 15px 20px;
+    font-size: 15px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--DarkBlue);
+    transform: scale(1.08);
+}
+
+.sidebar .role {
+    color: var(--White);
+    text-align: center;
+    font-size: 24px;
+    background-color: var(--DarkBlue);
+}
+
+.sidebar .role:hover {
+    transform: unset;
+}
+
+.sidebar .nav-link i {
+    padding-right: 10px;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--DarkBlue);
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+    color: inherit;
+}
+
+.sidebar-heading {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar {
+    background-color: var(--Blue);
+    width: 100%;
+    position: fixed;
+}
+
+.navbar-brand {
+    color: var(--White);
+    text-decoration: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.navbar-brand i {
+    padding-right: 10px;
+}
+
+.navbar .nav-link {
+    color: var(--White);
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+.navbar .nav-link i {
+    padding-right: 5px;
+}
+
+.navbar .navbar-toggler {
+    top: 0.25rem;
+    right: 1rem;
+    color: var(--White);
+}
+
+.admin-overview {
+    width: calc(100vw - 350px);
+    position: absolute;
+    left: 280px;
+    top: 80px;
+    overflow-x: hidden;
+}
+
+/* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+/* ? DASHBOARD HOME CSS*/
+
+.admin-overview .card{
+    border: none;
+}
+
+.admin-overview .card .card-body{
+    background-color: var(--Blue);
+    border: 2px solid var(--Blue);
+    border-radius: 20px;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.welcome-msg{
+    padding: 30px;
+}
+/* ? DASHBOARD HOME CSS END*/
+
+/* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+/* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+/* ? MY PROJECTS CSS*/
+
+.my-projects thead tr th:nth-child(2){
+    width: 80%;
+}
+
+/* ? MY PROJECTS CSS END*/
+
+/* ? CREATE NEW PROJECT CSS*/
+
+/* ? CREATE NEW PROJECT CSS END*/
+
+/* ? PROJECT DETAILS CSS*/
+
+/* ? PROJECT DETAILS END*/
+
+/* ? MY TICKETS CSS*/
+
+/* ? MY TICKETS CSS END*/
+
+/* ? TICKET DETAILS CSS*/
+
+/* ? TICKET DETAILS END*/
+
+/* ? EDIT TICKET CSS*/
+
+/* ? EDIT TICKET END*/
+
+/* ? USER PROFILE CSS*/
+
+/* ? USER PROFILE CSS END*/
+
+/* ?TABLE PAGINATION CSS 1-2*/
+
+.pagination .pagination-label{
+    text-align: center;
+    padding-right: 10px;
+}
+
+.pagination .next{
+    margin: 0 10px;
+}
+
+.pagination2{
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination2 .pagination-label2{
+    padding: 0 10px;
+    display: inline-block;
+}
+.pagination2 .next2{
+    margin: 0 10px;
+}
+    
+/* ?TABLE PAGINATION CSS 1-2 END*/
+
+/* ? 404 PAGE CSS */
+
+.error-msg{
+    font-family: var(--Error);
+}
+
+/* ? 404 PAGE CSS END*/
+
+/* ? RESPONSIVE MEDIA QUERIES CSS*/
+
+@media (max-width: 1300px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    .signup-container img {
+        margin-right: unset;
+        height: 460px;
+        width: 420px;
+    }
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+
+}
+
+@media (max-width: 1200px) {
+    /* ? LOGIN CSS */
+
+    .login-container img {
+        height: 400px;
+        width: 400px;
+    }
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    .signup-container img {
+        margin-right: unset;
+        height: 420px;
+        width: 380px;
+    }
+
+    .signup-form-container form input {
+        margin: 20px 40px;
+        width: 230px;
+    }
+
+    .signup-form-container form button {
+        width: 230px;
+    }
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+    .admin-overview {
+        width: calc(100vw - 300px);
+        position: absolute;
+        left: 250px;
+        top: 80px;
+        overflow-x: hidden;
+    }
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 1100px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+    .admin-overview {
+        width: calc(100vw - 250px);
+        position: absolute;
+        left: 220px;
+        top: 80px;
+        overflow-x: hidden;
+    }
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 1000px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    .signup-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+    }
+
+    .signup-container img {
+        margin: 0 auto;
+        height: 300px;
+        width: 300px;
+    }
+
+    .signup-form-container {
+        text-align: center;
+    }
+
+    .signup-form-container .signup-heading {
+        font-size: 30px;
+        margin-bottom: 40px;
+        color: var(--Blue);
+    }
+
+    .signup-form-container form input {
+        display: inline-block;
+        margin: 20px 50px;
+        height: 50px;
+        width: 250px;
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 20px;
+        outline: none;
+    }
+
+    .signup-form-container form button {
+        height: 40px;
+        width: 250px;
+        color: var(--White);
+        background-color: var(--Blue);
+        border: 2px solid var(--Blue);
+        border-radius: 30px;
+        font-size: 25px;
+        outline: none;
+        cursor: pointer;
+        margin: 30px auto;
+        display: block;
+    }
+
+    .signup-form-container form .login-link {
+        padding-left: 10px;
+        text-decoration: none;
+    }
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+    .admin-overview {
+        width: calc(100vw - 300px);
+        position: absolute;
+        left: 270px;
+        top: 80px;
+        overflow-x: hidden;
+    }
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+    .welcome-msg h2{
+        font-size: 25px;
+    }
+    .welcome-msg h1{
+        font-size: 30px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 900px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+    .admin-overview {
+        width: calc(100vw - 280px);
+        position: absolute;
+        left: 250px;
+        top: 80px;
+        overflow-x: hidden;
+    }
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+    .welcome-msg h2{
+        font-size: 22px;
+    }
+    .welcome-msg h1{
+        font-size: 25px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 800px) {
+    /* ? LOGIN CSS */
+
+    .login-container img {
+        height: 250px;
+        width: 350px;
+        margin: 0 auto;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+
+    .login-form-container form button {
+        margin: 30px auto;
+    }
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+    .admin-overview {
+        width: calc(100vw - 260px);
+        position: absolute;
+        left: 230px;
+        top: 80px;
+        overflow-x: hidden;
+    }
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+     .welcome-msg h2{
+        font-size: 30px;
+    }
+    .welcome-msg h1{
+        font-size: 35px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        top: 3rem;
+    }
+    .admin-overview{
+        width: 90%;
+        left: 5%;
+        top: 8rem;
+    }
+}
+
+@media (max-width: 700px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+     .welcome-msg h2{
+        font-size: 25px;
+    }
+    .welcome-msg h1{
+        font-size: 30px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 600px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+    .admin-welcome-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-img{
+        margin: 0 auto;
+    }
+    .welcome-msg{
+        margin: 0 auto;
+    }
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 500px) {
+    /* ? LOGIN CSS */
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    .signup-logo {
+        font-size: 15px;
+        letter-spacing: 2px;
+        margin: 10px 0;
+    }
+
+    .signup-container img {
+        height: 200px;
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .signup-form-container .signup-heading {
+        font-size: 25px;
+    }
+
+    .signup-form-container form input {
+        height: 30px;
+        width: 180px;
+        font-size: 15px;
+    }
+
+    .signup-form-container form button {
+        height: 25px;
+        width: 180px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .signup-form-container form span {
+        font-size: 15px;
+    }
+
+    .signup-form-container form .signup-link {
+        font-size: 15px;
+    }
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+    .welcome-msg{
+        padding: unset;
+    }
+     .welcome-msg h2{
+        font-size: 20px;
+    }
+    .welcome-msg h1{
+        font-size: 25px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+    
+    .manage-user-heading h1{
+        font-size: 1.5rem;
+    }
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+@media (max-width: 400px) {
+    /* ? LOGIN CSS */
+
+    .login-logo {
+        font-size: 15px;
+        letter-spacing: 2px;
+        margin: 10px 0;
+    }
+
+    .login-container img {
+        height: 200px;
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .login-form-container .login-heading {
+        font-size: 25px;
+    }
+
+    .login-form-container form input {
+        margin: 30px auto;
+        height: 30px;
+        width: 180px;
+        font-size: 15px;
+    }
+
+    .login-form-container form button {
+        height: 25px;
+        width: 180px;
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+
+    .login-form-container form span {
+        font-size: 15px;
+    }
+
+    .login-form-container form .signup-link {
+        font-size: 15px;
+    }
+
+    /* ? LOGIN CSS END*/
+
+    /* ? SIGN UP CSS*/
+
+    /* ? SIGN UP CSS END*/
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS */
+
+    /* ? DASHBOARD NAVBAR-SIDEBAR CSS END*/
+
+    /* ? DASHBOARD HOME CSS*/
+    .welcome-msg{
+        margin-bottom: 20px;
+    }
+
+     .welcome-msg h2{
+        width: 150%;
+        font-size: 25px;
+    }
+    .welcome-msg h1{
+        width: 170%;
+        font-size: 30px;
+    }
+
+    /* ? DASHBOARD HOME CSS END*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS*/
+
+    /* ? MANAGE ROLE ASSIGNMENT CSS END*/
+
+    /* ? MY PROJECTS CSS*/
+
+    /* ? MY PROJECTS CSS END*/
+
+    /* ? CREATE NEW PROJECT CSS*/
+
+    /* ? CREATE NEW PROJECT CSS END*/
+
+    /* ? PROJECT DETAILS CSS*/
+
+    /* ? PROJECT DETAILS END*/
+
+    /* ? MY TICKETS CSS*/
+
+    /* ? MY TICKETS CSS END*/
+
+    /* ? TICKET DETAILS CSS*/
+
+    /* ? TICKET DETAILS END*/
+
+    /* ? EDIT TICKET CSS*/
+
+    /* ? EDIT TICKET END*/
+
+    /* ? USER PROFILE CSS*/
+
+    /* ? USER PROFILE CSS END*/
+}
+
+/* ? RESPONSIVE MEDIA QUERIES CSS END*/
